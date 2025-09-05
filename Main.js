@@ -12,15 +12,30 @@ if (presençaAluno > 25) {
 }
 //Calculando provas
 let mediaNotas = ((primeiraNota+segundaNota)/2);
+let notaRecuperacao = null;
 
 if (mediaNotas >= 7) {
-    console.log("O aluno foi aprovado.");
+    console.log("O aluno passou por média e foi aprovado.");
 }
-else if ((mediaNotas >= 5) && (mediaNotas <= 7 )) 
-console.log("O aluno fara recuperação. ");
+else if (mediaNotas >= 5 && mediaNotas < 7 ) {
+console.log("O aluno fará recuperação. ");
+notaRecuperacao = parseFloat(prompt("Informe a nota da recuperação"));
+
+let mediaFinal = (mediaNotas+notaRecuperacao)/2;
+
+if (mediaFinal >= 5) {
+    console.log("O aluno foi aprovado após a recuperação.");
+} else {
+    console.log("O aluno foi reprovado após a recuperação.");
+}
+
+}
 
 
 console.log(("Total de aulas: ")+totalAulaSemestre);
 console.log(("Total de faltas: ")+totalDeFaltas);
-console.log(("Percentual de presença: ")+presençaAluno);
-console.log(("Media notas do aluno: ")+mediaNotas);
+console.log(("Percentual de presença: ")+presençaAluno +"%");
+console.log(("Média notas do aluno: ")+mediaNotas);
+if (notaRecuperacao !== null) {
+console.log(("Nota recuperação: ")+notaRecuperacao);
+}
